@@ -2,6 +2,7 @@ import React from 'react'
 import { useFetchGifs } from '../hooks/useFetchGifs'
 // import { getGifs } from '../helpers/getGifs';
 import { GifGridItem } from './GifGridItem';
+import PropTypes from 'prop-types';
 
 const GifGrid = ({ category }) => {
 
@@ -14,7 +15,7 @@ const GifGrid = ({ category }) => {
     // }, [category]);
 
     return (
-        <div>
+        <>
             <h3 className="animate__animated animate__fadeInLeft">{ category }</h3>
             { loading && <p className="animate__animated animate__flash"> Loading ...</p> }
             <div className="card-grid">
@@ -27,9 +28,13 @@ const GifGrid = ({ category }) => {
                     ))
                 }
             </div>
-        </div>
+        </>
         
     )
+}
+
+GifGrid.propTypes = {
+    category: PropTypes.string.isRequired
 }
 
 export default GifGrid
